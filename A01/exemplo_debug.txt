@@ -1,0 +1,31 @@
+N=8 pool=2 modo=com. Ctrl+C mostra a fila; Ctrl+\ encerra.
+DESPACHO req=1 worker=1 ordem=1
+DESPACHO req=2 worker=2 ordem=2
+
+DEBUG concluidas=0/8
+FIFO aguardando: 3 4 5 6 7 8
+Pool: [worker 1: req 1] [worker 2: req 2]
+Concluidas:
+FIM DEBUG
+
+DEBUG concluidas=0/8
+FIFO aguardando: 3 4 5 6 7 8
+Pool: [worker 1: req 1] [worker 2: req 2]
+Concluidas:
+FIM DEBUG
+
+FIM req=1 worker=1
+DESPACHO req=3 worker=1 ordem=3
+FIM req=2 worker=2
+DESPACHO req=4 worker=2 ordem=4
+FIM req=3 worker=1
+DESPACHO req=5 worker=1 ordem=5
+FIM req=4 worker=2
+DESPACHO req=6 worker=2 ordem=6
+FIM req=5 worker=1
+DESPACHO req=7 worker=1 ordem=7
+FIM req=6 worker=2
+DESPACHO req=8 worker=2 ordem=8
+FIM req=7 worker=1
+FIM req=8 worker=2
+RESULTADO modo=com N=8 pool=2 esperado=800 obtido=800 perdido=0 total=8000 total_inicial=8000 origens_ok=1 ok=1
